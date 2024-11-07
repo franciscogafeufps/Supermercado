@@ -51,7 +51,7 @@ public class ControlProducto implements ActionListener {
                 guardarProducto();
                 break;
             case "Actualizar":
-                limpiarCampos();
+                actualizarProducto();
                 break;
             case "Buscar":
                 buscarProducto();
@@ -84,16 +84,44 @@ public class ControlProducto implements ActionListener {
 
     private void buscarProducto() {
         try {
-            List<Producto> productos = productoDao.obtenerTodos();
-            if (productos.isEmpty()) {
-                JOptionPane.showMessageDialog(vProducto, "No se encontraron productos.");
+            int codigo = Integer.parseInt(vProducto.txtCodigo.getText());
+            Producto producto = productoDao.buscarPorCodigo(codigo);
+            if (producto != null) {
+                vProducto.txtNombre.setText(producto.getNombre());
+                vProducto.txtDescripcion.setText(producto.getDescripcion());
+                vProducto.txtPrecio.setText(String.valueOf(producto.getPrecio()));
+                vProducto.txtProveedor.setText(String.valueOf(producto.getProveedor()));
+                JOptionPane.showMessageDialog(vProducto, "Producto encontrado!");
             } else {
-                for (Producto producto : productos) {
-                    System.out.println(producto);  // O actualizar la interfaz con la lista
-                }
+                JOptionPane.showMessageDialog(vProducto, "Producto no encontrado.");
+                limpiarCampos();
             }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(vProducto, "Por favor ingrese un código válido.", "Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(vProducto, "Error al buscar los productos: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(vProducto, "Error al buscar el producto: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void actualizarProducto() {
+        try {
+            Producto producto = new Producto();
+            producto.setCodigo(Integer.parseInt(vProducto.txtCodigo.getText()));
+            producto.setNombre(vProducto.txtNombre.getText());
+            producto.setDescripcion(vProducto.txtDescripcion.getText());
+            producto.setPrecio(Double.parseDouble(vProducto.txtPrecio.getText()));
+            producto.setProveedor(Integer.parseInt(vProducto.txtProveedor.getText()));
+
+            boolean actualizado = productoDao.actualizar(producto);
+            if (actualizado) {
+                JOptionPane.showMessageDialog(vProducto, "Producto actualizado exitosamente!");
+            } else {
+                JOptionPane.showMessageDialog(vProducto, "No se pudo actualizar el producto.");
+            }
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(vProducto, "Por favor, ingrese valores válidos para los números.", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(vProducto, "Error al actualizar el producto: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 

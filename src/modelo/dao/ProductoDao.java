@@ -98,4 +98,45 @@ public class ProductoDao {
         }
     }
     
+    // Método en ProductoDao para buscar un producto por código
+    public Producto buscarPorCodigo(int codigo) {
+        Producto producto = null;
+        String query = "SELECT id, nombre, descripcion, precio, proveedor_id FROM producto WHERE id = ?";
+        try (PreparedStatement buscar = conexion.prepareStatement(query)) {
+            buscar.setInt(1, codigo);
+            try (ResultSet resultado = buscar.executeQuery()) {
+                if (resultado.next()) {
+                    producto = new Producto();
+                    producto.setCodigo(resultado.getInt("id"));
+                    producto.setNombre(resultado.getString("nombre"));
+                    producto.setDescripcion(resultado.getString("descripcion"));
+                    producto.setPrecio(resultado.getDouble("precio"));
+                    producto.setProveedor(resultado.getInt("proveedor_id"));
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return producto;
+    }
+    
+    // Método en ProductoDao para actualizar un producto
+    public boolean actualizar(Producto producto) {
+        String query = "UPDATE producto SET nombre = ?, descripcion = ?, precio = ?, proveedor_id = ? WHERE id = ?";
+        try (PreparedStatement actualizar = conexion.prepareStatement(query)) {
+            actualizar.setString(1, producto.getNombre());
+            actualizar.setString(2, producto.getDescripcion());
+            actualizar.setDouble(3, producto.getPrecio());
+            actualizar.setInt(4, producto.getProveedor());
+            actualizar.setInt(5, producto.getCodigo());
+            int filasAfectadas = actualizar.executeUpdate();
+            return filasAfectadas > 0; // Retorna verdadero si se actualizó al menos un registro
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductoDao.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    
+    
 }
