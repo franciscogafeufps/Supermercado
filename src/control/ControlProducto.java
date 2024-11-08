@@ -41,7 +41,7 @@ public class ControlProducto implements ActionListener {
         this.vProducto.btnBuscar.addActionListener(this);
         this.vProducto.btnEliminar.addActionListener(this); 
         
-        JOptionPane.showMessageDialog(null, "Si esta escuchando");
+        //JOptionPane.showMessageDialog(null, "Si esta escuchando");
     }
 
     @Override

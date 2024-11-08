@@ -38,7 +38,7 @@ public class JFProveedor extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
-        btn = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,7 +67,7 @@ public class JFProveedor extends javax.swing.JFrame {
 
         btnBuscar.setText("Buscar");
 
-        btn.setText("Eliminar");
+        btnEliminar.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,7 +96,7 @@ public class JFProveedor extends javax.swing.JFrame {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                     .addComponent(btnBuscar)
                     .addGap(18, 18, 18)
-                    .addComponent(btn)
+                    .addComponent(btnEliminar)
                     .addContainerGap()))
         );
         jPanel1Layout.setVerticalGroup(
@@ -127,7 +127,7 @@ public class JFProveedor extends javax.swing.JFrame {
                             .addComponent(btnGuardar)
                             .addComponent(btnActualizar))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn)
+                            .addComponent(btnEliminar)
                             .addComponent(btnBuscar)))
                     .addContainerGap(121, Short.MAX_VALUE)))
         );
@@ -189,9 +189,9 @@ public class JFProveedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btn;
     public javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
