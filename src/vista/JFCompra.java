@@ -32,7 +32,7 @@ public class JFCompra extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtIdentificador = new javax.swing.JTextField();
-        txtCliente = new javax.swing.JTextField();
+        txtProveedor = new javax.swing.JTextField();
         txtProducto = new javax.swing.JTextField();
         txtCantidad = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
@@ -43,7 +43,7 @@ public class JFCompra extends javax.swing.JFrame {
         txtFecha = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        areaResultados = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,7 +53,7 @@ public class JFCompra extends javax.swing.JFrame {
         jLabel1.setText("Identificador");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("Cliente");
+        jLabel2.setText("Proveedor");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Producto");
@@ -106,7 +106,7 @@ public class JFCompra extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtIdentificador, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
-                            .addComponent(txtCliente)
+                            .addComponent(txtProveedor)
                             .addComponent(txtProducto)
                             .addComponent(txtCantidad))))
                 .addContainerGap(17, Short.MAX_VALUE))
@@ -120,7 +120,7 @@ public class JFCompra extends javax.swing.JFrame {
                     .addComponent(txtIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -145,9 +145,9 @@ public class JFCompra extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultados"));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        areaResultados.setColumns(20);
+        areaResultados.setRows(5);
+        jScrollPane1.setViewportView(areaResultados);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -236,6 +236,7 @@ public class JFCompra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTextArea areaResultados;
     public javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminar;
@@ -248,11 +249,10 @@ public class JFCompra extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     public javax.swing.JTextField txtCantidad;
-    public javax.swing.JTextField txtCliente;
     public javax.swing.JTextField txtFecha;
     public javax.swing.JTextField txtIdentificador;
     public javax.swing.JTextField txtProducto;
+    public javax.swing.JTextField txtProveedor;
     // End of variables declaration//GEN-END:variables
 }

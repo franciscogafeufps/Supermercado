@@ -13,6 +13,12 @@ public class Producto {
     public Producto() {
     }
 
+    public Producto(Integer codigo) {
+        this.codigo = codigo;
+    }
+    
+    
+
     public Producto(Integer codigo, String nombre, String descripcion, double precio, Integer proveedor) {
         this.codigo = codigo;
         this.nombre = nombre;

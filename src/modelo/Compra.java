@@ -3,22 +3,20 @@ package modelo;
 
 import java.util.Date;
 
-
-
-public class Venta {
+public class Compra {
     
     private int id; 
-    private Cliente cliente;
+    private Proveedor proveedor;
     private Producto producto; 
     private int cantidad;
     private Date fecha;
 
-    public Venta() {
+    public Compra() {
     }
 
-    public Venta(int id, Cliente cliente, Producto producto, int cantidad, Date fecha) {
+    public Compra(int id, Proveedor proveedor, Producto producto, int cantidad, Date fecha) {
         this.id = id;
-        this.cliente = cliente;
+        this.proveedor = proveedor;
         this.producto = producto;
         this.cantidad = cantidad;
         this.fecha = fecha;
@@ -32,12 +30,12 @@ public class Venta {
         this.id = id;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Proveedor getProveedor() {
+        return proveedor;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
 
     public Producto getProducto() {
@@ -63,16 +61,9 @@ public class Venta {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    
+
     @Override
     public String toString() {
-        return "ID de Venta: " + id +
-               "\nCliente: " + (cliente != null ? cliente.getCedula() : "No disponible") +
-               "\nProducto: " + (producto != null ? producto.getCodigo() : "No disponible") +
-               "\nCantidad: " + cantidad +
-               "\nFecha: " + fecha;
-    }
-
-    
-    
+        return "Compra{" + "id=" + id + ", proveedor=" + proveedor + ", producto=" + producto + ", cantidad=" + cantidad + ", fecha=" + fecha + '}';
+    }   
 }
